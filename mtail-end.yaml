@@ -1,0 +1,223 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  creationTimestamp: 2020-05-12T10:27:30Z
+  name: logs-exporter
+  namespace: monitoring
+  resourceVersion: "235248697"
+  selfLink: /api/v1/namespaces/monitoring/endpoints/logs-exporter
+  uid: 2ef5100c-943b-11ea-bda3-5254003fdaeb
+subsets:
+- addresses:
+  - ip: 172.20.1.2
+    nodeName: 192.168.1.23
+    targetRef:
+      kind: Pod
+      name: logs-exporter-hsc2b
+      namespace: monitoring
+      resourceVersion: "235180841"
+      uid: 42e46574-baad-11ea-bda3-5254003fdaeb
+  - ip: 172.20.101.7
+    nodeName: 192.168.1.105
+    targetRef:
+      kind: Pod
+      name: logs-exporter-6twg6
+      namespace: monitoring
+      resourceVersion: "235179592"
+      uid: d7e2d6eb-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.102.16
+    nodeName: 192.168.1.38
+    targetRef:
+      kind: Pod
+      name: logs-exporter-mqtcb
+      namespace: monitoring
+      resourceVersion: "235176061"
+      uid: a19f461e-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.104.5
+    nodeName: 192.168.1.8
+    targetRef:
+      kind: Pod
+      name: logs-exporter-pzlsh
+      namespace: monitoring
+      resourceVersion: "235180068"
+      uid: 09468e01-baad-11ea-bda3-5254003fdaeb
+  - ip: 172.20.105.6
+    nodeName: 192.168.1.48
+    targetRef:
+      kind: Pod
+      name: logs-exporter-qcsjz
+      namespace: monitoring
+      resourceVersion: "235175709"
+      uid: 88646770-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.107.8
+    nodeName: 192.168.1.44
+    targetRef:
+      kind: Pod
+      name: logs-exporter-45cnd
+      namespace: monitoring
+      resourceVersion: "235177818"
+      uid: e8120140-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.115.6
+    nodeName: 192.168.1.114
+    targetRef:
+      kind: Pod
+      name: logs-exporter-lpqhg
+      namespace: monitoring
+      resourceVersion: "235177865"
+      uid: 3cd577ec-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.13.14
+    nodeName: 192.168.1.19
+    targetRef:
+      kind: Pod
+      name: logs-exporter-88bbk
+      namespace: monitoring
+      resourceVersion: "235181761"
+      uid: 5ca546a2-baad-11ea-bda3-5254003fdaeb
+  - ip: 172.20.17.2
+    nodeName: 192.168.1.28
+    targetRef:
+      kind: Pod
+      name: logs-exporter-cbqrv
+      namespace: monitoring
+      resourceVersion: "235175185"
+      uid: 57c954ce-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.25.7
+    nodeName: 192.168.1.5
+    targetRef:
+      kind: Pod
+      name: logs-exporter-7dp2b
+      namespace: monitoring
+      resourceVersion: "235173910"
+      uid: d1d0606d-baaa-11ea-bda3-5254003fdaeb
+  - ip: 172.20.3.10
+    nodeName: 192.168.0.15
+    targetRef:
+      kind: Pod
+      name: logs-exporter-v4gp4
+      namespace: monitoring
+      resourceVersion: "235178051"
+      uid: 00757743-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.31.2
+    nodeName: 192.168.1.3
+    targetRef:
+      kind: Pod
+      name: logs-exporter-ng995
+      namespace: monitoring
+      resourceVersion: "235178807"
+      uid: 85197d46-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.32.3
+    nodeName: 192.168.0.7
+    targetRef:
+      kind: Pod
+      name: logs-exporter-s7ftr
+      namespace: monitoring
+      resourceVersion: "235179774"
+      uid: ee2bf386-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.42.2
+    nodeName: 192.168.1.11
+    targetRef:
+      kind: Pod
+      name: logs-exporter-qlj67
+      namespace: monitoring
+      resourceVersion: "235174133"
+      uid: f35ba5c1-baaa-11ea-bda3-5254003fdaeb
+  - ip: 172.20.43.8
+    nodeName: 192.168.1.37
+    targetRef:
+      kind: Pod
+      name: logs-exporter-2j8vj
+      namespace: monitoring
+      resourceVersion: "235174918"
+      uid: 41550601-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.5.5
+    nodeName: 192.168.1.33
+    targetRef:
+      kind: Pod
+      name: logs-exporter-8kjlm
+      namespace: monitoring
+      resourceVersion: "235181288"
+      uid: 286f8f3a-baad-11ea-bda3-5254003fdaeb
+  - ip: 172.20.52.9
+    nodeName: 192.168.0.3
+    targetRef:
+      kind: Pod
+      name: logs-exporter-ffnds
+      namespace: monitoring
+      resourceVersion: "235174452"
+      uid: 0d0ea3c2-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.55.11
+    nodeName: 192.168.1.16
+    targetRef:
+      kind: Pod
+      name: logs-exporter-8l75w
+      namespace: monitoring
+      resourceVersion: "235178455"
+      uid: 6d53cc92-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.56.4
+    nodeName: 192.168.0.9
+    targetRef:
+      kind: Pod
+      name: logs-exporter-zhwmj
+      namespace: monitoring
+      resourceVersion: "235174724"
+      uid: 2a05dfe0-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.6.12
+    nodeName: 192.168.1.139
+    targetRef:
+      kind: Pod
+      name: logs-exporter-w5nsr
+      namespace: monitoring
+      resourceVersion: "235176579"
+      uid: d1360e34-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.61.2
+    nodeName: 192.168.1.13
+    targetRef:
+      kind: Pod
+      name: logs-exporter-xtttk
+      namespace: monitoring
+      resourceVersion: "235179097"
+      uid: a6cc1faa-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.62.3
+    nodeName: 192.168.1.21
+    targetRef:
+      kind: Pod
+      name: logs-exporter-vnbr4
+      namespace: monitoring
+      resourceVersion: "235175494"
+      uid: 70fbacfa-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.68.7
+    nodeName: 192.168.1.31
+    targetRef:
+      kind: Pod
+      name: logs-exporter-rdf4m
+      namespace: monitoring
+      resourceVersion: "235177013"
+      uid: b8a411a8-baab-11ea-bda3-5254003fdaeb
+  - ip: 172.20.69.5
+    nodeName: 192.168.1.36
+    targetRef:
+      kind: Pod
+      name: logs-exporter-mrpqh
+      namespace: monitoring
+      resourceVersion: "235178411"
+      uid: 1ed8e876-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.8.3
+    nodeName: 192.168.1.12
+    targetRef:
+      kind: Pod
+      name: logs-exporter-j46t5
+      namespace: monitoring
+      resourceVersion: "235179952"
+      uid: bf7a48ee-baac-11ea-bda3-5254003fdaeb
+  - ip: 172.20.93.8
+    nodeName: 192.168.1.46
+    targetRef:
+      kind: Pod
+      name: logs-exporter-kkkd2
+      namespace: monitoring
+      resourceVersion: "235178114"
+      uid: 54dd6f72-baac-11ea-bda3-5254003fdaeb
+  ports:
+  - name: metrics
+    port: 3903
+    protocol: TCP
