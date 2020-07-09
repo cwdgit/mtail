@@ -1,0 +1,146 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"DaemonSet","metadata":{"annotations":{},"labels":{"k8s-app":"logs-exporter"},"name":"logs-exporter","namespace":"monitoring"},"spec":{"selector":{"matchLabels":{"k8s-app":"logs-exporter"}},"template":{"metadata":{"labels":{"k8s-app":"logs-exporter"}},"spec":{"containers":[{"command":["mtail","--port=3903","--override_timezone=Local","--disable_fsnotify","--progs=/config/mtail","--logtostderr","--logs=/etc/issue","--logs=/var/log/messages","--logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/std*.log","--logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/invoker.log","--logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/provider.log","--logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/catalina.out"],"image":"279437341690.dkr.ecr.cn-north-1.amazonaws.com.cn/k8s/prom-exporter:logs_exporter-v0.7","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/metrics","port":3903},"initialDelaySeconds":30,"timeoutSeconds":30},"name":"logs-exporter","ports":[{"containerPort":3903,"hostPort":3903,"name":"metrics"}],"readinessProbe":{"httpGet":{"path":"/metrics","port":3903},"initialDelaySeconds":30,"timeoutSeconds":30},"volumeMounts":[{"mountPath":"/config/mtail/key_words.mtail","name":"config-key-words","subPath":"key_words.mtail"},{"mountPath":"/config/mtail/invoke_time.mtail","name":"config-invoke-time","subPath":"invoke_time.mtail"},{"mountPath":"/config/mtail/var_log_message.mtail","name":"var-log-message","subPath":"var_log_message.mtail"},{"mountPath":"/export/kubelet/","name":"export-kubelet","readOnly":true},{"mountPath":"/var/lib/kubelet/","name":"var-lib-kubelet","readOnly":true},{"mountPath":"/var/log/","name":"var-log","readOnly":true}]}],"imagePullSecrets":[{"name":"aws"}],"tolerations":[{"operator":"Exists"}],"volumes":[{"hostPath":{"path":"/export/kubelet/"},"name":"export-kubelet"},{"hostPath":{"path":"/var/lib/kubelet/"},"name":"var-lib-kubelet"},{"hostPath":{"path":"/var/log/"},"name":"var-log"},{"configMap":{"items":[{"key":"key_words.mtail","path":"key_words.mtail"}],"name":"mtail-config"},"name":"config-key-words"},{"configMap":{"items":[{"key":"invoke_time.mtail","path":"invoke_time.mtail"}],"name":"mtail-config"},"name":"config-invoke-time"},{"configMap":{"items":[{"key":"var_log_message.mtail","path":"var_log_message.mtail"}],"name":"mtail-config"},"name":"var-log-message"}]}},"updateStrategy":{"type":"RollingUpdate"}}}
+  creationTimestamp: 2020-05-12T10:27:30Z
+  generation: 19
+  labels:
+    k8s-app: logs-exporter
+  name: logs-exporter
+  namespace: monitoring
+  resourceVersion: "235181113"
+  selfLink: /apis/extensions/v1beta1/namespaces/monitoring/daemonsets/logs-exporter
+  uid: 2ef748b7-943b-11ea-bda3-5254003fdaeb
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: logs-exporter
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        k8s-app: logs-exporter
+    spec:
+      containers:
+      - command:
+        - mtail
+        - --port=3903
+        - --override_timezone=Local
+        - --disable_fsnotify
+        - --progs=/config/mtail
+        - --logtostderr
+        - --logs=/etc/issue
+        - --logs=/var/log/messages
+        - --logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/std*.log
+        - --logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/invoker.log
+        - --logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/provider.log
+        - --logs=/var/lib/kubelet/pods/*/volumes/kubernetes.io~empty-dir/app-logs/catalina.out
+        image: 279437341690.dkr.ecr.cn-north-1.amazonaws.com.cn/k8s/prom-exporter:logs_exporter-v0.8
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: 3903
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 30
+        name: logs-exporter
+        ports:
+        - containerPort: 3903
+          hostPort: 3903
+          name: metrics
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: 3903
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 30
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /config/mtail/key_words.mtail
+          name: config-key-words
+          subPath: key_words.mtail
+        - mountPath: /config/mtail/invoke_time.mtail
+          name: config-invoke-time
+          subPath: invoke_time.mtail
+        - mountPath: /config/mtail/var_log_message.mtail
+          name: var-log-message
+          subPath: var_log_message.mtail
+        - mountPath: /export/kubelet/
+          name: export-kubelet
+          readOnly: true
+        - mountPath: /var/lib/kubelet/
+          name: var-lib-kubelet
+          readOnly: true
+        - mountPath: /var/log/
+          name: var-log
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: aws
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - operator: Exists
+      volumes:
+      - hostPath:
+          path: /export/kubelet/
+          type: ""
+        name: export-kubelet
+      - hostPath:
+          path: /var/lib/kubelet/
+          type: ""
+        name: var-lib-kubelet
+      - hostPath:
+          path: /var/log/
+          type: ""
+        name: var-log
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: key_words.mtail
+            path: key_words.mtail
+          name: mtail-config
+        name: config-key-words
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: invoke_time.mtail
+            path: invoke_time.mtail
+          name: mtail-config
+        name: config-invoke-time
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: var_log_message.mtail
+            path: var_log_message.mtail
+          name: mtail-config
+        name: var-log-message
+  templateGeneration: 19
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
+status:
+  currentNumberScheduled: 26
+  desiredNumberScheduled: 26
+  numberAvailable: 26
+  numberMisscheduled: 0
+  numberReady: 26
+  observedGeneration: 19
+  updatedNumberScheduled: 26
